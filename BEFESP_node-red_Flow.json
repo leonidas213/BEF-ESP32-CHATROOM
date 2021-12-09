@@ -1,0 +1,233 @@
+[
+    {
+        "id": "33ac2224aab1b9fc",
+        "type": "mqtt in",
+        "z": "c5a5d2b68fe81b28",
+        "name": "",
+        "topic": "BEFESP32/out_01",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "59a90cbd0ab57ec9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 140,
+        "wires": [
+            [
+                "ccb4ca7aa80a09d0"
+            ]
+        ]
+    },
+    {
+        "id": "e9d67356457e9fb0",
+        "type": "mqtt in",
+        "z": "c5a5d2b68fe81b28",
+        "name": "",
+        "topic": "BEFESP32/out_02",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "59a90cbd0ab57ec9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 180,
+        "wires": [
+            [
+                "ccb4ca7aa80a09d0"
+            ]
+        ]
+    },
+    {
+        "id": "b70e94cb5015cc5d",
+        "type": "mqtt in",
+        "z": "c5a5d2b68fe81b28",
+        "name": "",
+        "topic": "BEFESP32/out_0",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "59a90cbd0ab57ec9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 500,
+        "wires": [
+            [
+                "ccb4ca7aa80a09d0"
+            ]
+        ]
+    },
+    {
+        "id": "d84a77971938dca5",
+        "type": "mqtt in",
+        "z": "c5a5d2b68fe81b28",
+        "name": "",
+        "topic": "BEFESP32/out_1",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "59a90cbd0ab57ec9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 540,
+        "wires": [
+            [
+                "ccb4ca7aa80a09d0"
+            ]
+        ]
+    },
+    {
+        "id": "b72545a82c26af33",
+        "type": "mqtt in",
+        "z": "c5a5d2b68fe81b28",
+        "name": "",
+        "topic": "BEFESP32/out_2",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "59a90cbd0ab57ec9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 580,
+        "wires": [
+            [
+                "ccb4ca7aa80a09d0"
+            ]
+        ]
+    },
+    {
+        "id": "c8a011f2665fc1e7",
+        "type": "mqtt in",
+        "z": "c5a5d2b68fe81b28",
+        "name": "",
+        "topic": "BEFESP32/out_10",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "59a90cbd0ab57ec9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 300,
+        "wires": [
+            [
+                "ccb4ca7aa80a09d0"
+            ]
+        ]
+    },
+    {
+        "id": "73a1561a1898e849",
+        "type": "mqtt in",
+        "z": "c5a5d2b68fe81b28",
+        "name": "",
+        "topic": "BEFESP32/out_20",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "59a90cbd0ab57ec9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 380,
+        "wires": [
+            [
+                "ccb4ca7aa80a09d0"
+            ]
+        ]
+    },
+    {
+        "id": "b22e316f8e1e9e15",
+        "type": "mqtt in",
+        "z": "c5a5d2b68fe81b28",
+        "name": "",
+        "topic": "BEFESP32/out_21",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "59a90cbd0ab57ec9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 420,
+        "wires": [
+            [
+                "ccb4ca7aa80a09d0"
+            ]
+        ]
+    },
+    {
+        "id": "d680072a7251149c",
+        "type": "mqtt in",
+        "z": "c5a5d2b68fe81b28",
+        "name": "",
+        "topic": "BEFESP32/out_12",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "59a90cbd0ab57ec9",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 260,
+        "wires": [
+            [
+                "ccb4ca7aa80a09d0"
+            ]
+        ]
+    },
+    {
+        "id": "ccb4ca7aa80a09d0",
+        "type": "debug",
+        "z": "c5a5d2b68fe81b28",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "59a90cbd0ab57ec9",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]
