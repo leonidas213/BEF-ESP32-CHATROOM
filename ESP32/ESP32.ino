@@ -4,7 +4,7 @@
 /*
   Cihaz 0:Berk
   Cihaz 1:Enes
-  Cihaz 2:Cihaz 2
+  Cihaz 2:Fulya
 */
 const char* DeviceName = "Berkant";     //cihazın uniqe adı
 const char* ssid = "Berkany";               //wifi adın
@@ -12,21 +12,21 @@ const char* password = "Adalet34";          //wifi şifresi
 const char* mqtt_server = "broker.hivemq.com";   //Public mqtt brokerin ipsi
 int mqtt_port = 1883;
 //#-----------------------------------
-String Subscribe1 = "BEESP32/out_10";          //Kullanıcı 1den gelen özel mesajlar
-String Subscribe2 = "BEESP32/out_20";          //Kullanıcı 2den gelen özel mesajlar
-String Subscribe3 = "BEESP32/out_1";           //Kullanıcı 1den gelen mesajlar
-String Subscribe4 = "BEESP32/out_2";           //Kullanıcı 2den gelen mesajlar
+String Subscribe1 = "BEFESP32/out_10";          //Kullanıcı 1den gelen özel mesajlar
+String Subscribe2 = "BEFESP32/out_20";          //Kullanıcı 2den gelen özel mesajlar
+String Subscribe3 = "BEFESP32/out_1";           //Kullanıcı 1den gelen mesajlar
+String Subscribe4 = "BEFESP32/out_2";           //Kullanıcı 2den gelen mesajlar
 //#-----------------------------------
 //"1:merhaba " /sadece kullanıcı 1 e gider
-String Publish1 = "BEESP32/out_01";           //Kullanıcı 1 e özel mesaj gönderilen adres
+String Publish1 = "BEFESP32/out_01";           //Kullanıcı 1 e özel mesaj gönderilen adres
 String WhisperTo1 = "enes:";                   //Özel mesaj göndermek için kullanılan özel kelime(?)
 
 //"2:merhaba " /sadece kullanıcı 2 ye gider
-String Publish2 = "BEESP32/out_02";           //Kullanıcı 2 ye özel mesaj gönderilen adres
-String WhisperTo2 = "2:";                   //Özel mesaj göndermek için kullanılan özel kelime(?)
+String Publish2 = "BEFESP32/out_02";           //Kullanıcı 2 ye özel mesaj gönderilen adres
+String WhisperTo2 = "fulya:";                   //Özel mesaj göndermek için kullanılan özel kelime(?)
 
 //"merhaba " /herkese mesaj gider
-String Publish3 = "BEESP32/out_0";            //Herkese Mesaj gönderme adresi
+String Publish3 = "BEFESP32/out_0";            //Herkese Mesaj gönderme adresi
 
 
 
@@ -113,22 +113,38 @@ void reconnect() {
   }
 }
 
-long lastMsg = 0;
+String TempMessage;
+bool Ready;
 void loop() {
 
   if (!client.connected()) {//mqtt ye bağlanıldı mı?
     reconnect();            //mqttye bağlan
   }
   client.loop();            //mqtt den mesaj geldi mi kontrol et
-  long now = millis();
-  if (now - lastMsg > 5000) {
-    lastMsg = now;
-    SendMessage("merhaba enes");
-    SendMessage("enes: fısıldadım");
+
+
+  if (Serial.available() > 0) { // seriala yazı yazıldı mı
+    char state;
+    state = Serial.read(); // serialdaki yazıyı oku
+    
+    if (state != 10)      //eğer okunan harfin ASCII değeri 10 değilse mesaja ekle
+      TempMessage += String(state);
+
+    if (state == 10) {  //eğer okunan harfin ASCII değeri 10(enter tuşu) ise mesajı
+      //mqtt ye gönder, tempmesajı sıfırla
+      Ready = true;
+
+      state = 0;
     }
+  }
+  if (Ready) {
+    Ready = false;
+    SendMessage();
+    TempMessage = "";
+  }
 }
 //mesaj gönderme fonksiyonu
-void SendMessage(String TempMessage) {
+void SendMessage() {
   String Mes = TempMessage;
   if (Mes != "") {
     if (Mes.startsWith(WhisperTo1)) {
